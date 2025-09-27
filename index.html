@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Space Explorer</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      :root{
+        --bg:#05060b;
+        --card:#0b1220;
+        --accent:#6dd3ff;
+        --muted:#9aa6b2;
+        --glass: rgba(255,255,255,0.04);
+      }
+      *{box-sizing:border-box}
+      body{
+        font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        background: radial-gradient(ellipse at 10% 10%, rgba(109,211,255,0.02) 0%, transparent 20%),
+                    radial-gradient(ellipse at 90% 90%, rgba(255,255,255,0.02) 0%, transparent 20%),
+                    var(--bg);
+        color:#e8f0f8;
+        -webkit-font-smoothing:antialiased;
+      }
+      .navbar-brand{font-weight:700; letter-spacing:0.4px}
+      .hero{
+        min-height:60vh;
+        display:flex;
+        align-items:center;
+      }
+      .hero h1{font-size:clamp(2rem,4.5vw,3.6rem); font-weight:700}
+      .hero p{color:var(--muted)}
+      .planet-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03);}
+      .planet-img{height:160px; object-fit:cover; border-radius:8px}
+      .section-title{font-weight:700; margin-bottom:1rem}
+      footer{background:transparent; color:var(--muted); padding:2.5rem 0}
+      .btn-accent{background:linear-gradient(90deg,var(--accent), #7ae1ff); color:#02101a; font-weight:600}
+      .stat{font-weight:700; font-size:1.6rem}
+      .card-glow{box-shadow:0 8px 30px rgba(109,211,255,0.04)}
+      @media (max-width:576px){ .planet-img{height:140px} }
+    </style>
+  </head>
+  <body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-3">
+      <div class="container">
+        <a class="navbar-brand" href="#">🚀 Space Explorer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto gap-2">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#planets">Planets</a></li>
+            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#facts">Facts</a></li>
+            <li class="nav-item"><a class="btn btn-sm btn-accent ms-2" href="#explore">Explore</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-6">
+            <h1>Discover the wonders of the universe</h1>
+            <p class="lead">A small static site celebrating planets, space facts, and cosmic photography. Built with Bootstrap — responsive, accessible, and ready to explore.</p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="#planets" class="btn btn-outline-light">View Planets</a>
+              <a href="#gallery" class="btn btn-accent">See Gallery</a>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5b7c6b5d0d5a2b8f5a9f7a8f9e6b1c2d" alt="space hero" class="img-fluid rounded card-glow shadow-lg" style="max-height:360px; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="about" class="py-5">
+        <div class="container">
+          <div class="row align-items-center gy-4">
+            <div class="col-md-6">
+              <h2 class="section-title">About Space Explorer</h2>
+              <p>Space Explorer is a demo static website designed to introduce visitors to our solar system and cosmic phenomena. It uses semantic HTML and Bootstrap utilities to create a clean, modern layout that works on all devices.</p>
+              <ul class="list-unstyled mt-3">
+                <li>✅ Responsive & accessible</li>
+                <li>✅ Lightweight — fast to load</li>
+                <li>✅ Educational content & gallery</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <div class="p-4 planet-card rounded">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <div class="stat">8</div>
+                    <div class="text-muted">Planets highlighted</div>
+                  </div>
+                  <div>
+                    <div class="stat">4.6B+</div>
+                    <div class="text-muted">Years since solar system formed</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLANETS GRID -->
+      <section id="planets" class="py-5 bg-transparent">
+        <div class="container">
+          <h3 class="section-title">Planets of Our Solar System</h3>
+          <div class="row g-4">
+
+            <!-- Example Planet Card -->
+            <div class="col-sm-6 col-lg-3">
+              <article class="card p-3 planet-card h-100">
+                <img src="https://images.unsplash.com/photo-1532298488760-970ff6decf63?q=80&w=900&auto=format&fit=crop" class="planet-img mb-3 rounded" alt="Mercury">
+                <h5>Mercury</h5>
+                <p class="mb-2 text-muted small">The smallest and fastest planet, closest to the Sun.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <small class="text-muted">Diameter: 4,879 km</small>
+                  <a href="#" class="btn btn-sm btn-outline-light">Learn</a>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+              <article class="card p-3 planet-card h-100">
+                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=900&auto=format&fit=crop" class="planet-img mb-3 rounded" alt="Venus">
+                <h5>Venus</h5>
+                <p class="mb-2 text-muted small">A thick toxic atmosphere and surface temperatures hot enough to melt lead.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <small class="text-muted">Surface temp: 462 °C</small>
+                  <a href="#" class="btn btn-sm btn-outline-light">Learn</a>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+              <article class="card p-3 planet-card h-100">
+                <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=900&auto=format&fit=crop" class="planet-img mb-3 rounded" alt="Earth">
+                <h5>Earth</h5>
+                <p class="mb-2 text-muted small">Our home — the only planet known to support life.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <small class="text-muted">Age: 4.543 billion years</small>
+                  <a href="#" class="btn btn-sm btn-outline-light">Learn</a>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+              <article class="card p-3 planet-card h-100">
+                <img src="https://images.unsplash.com/photo-1507878866276-a947ef722fee?q=80&w=900&auto=format&fit=crop" class="planet-img mb-3 rounded" alt="Mars">
+                <h5>Mars</h5>
+                <p class="mb-2 text-muted small">The red planet — a target for exploration and human missions.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <small class="text-muted">Olympus Mons: tallest volcano</small>
+                  <a href="#" class="btn btn-sm btn-outline-light">Learn</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Add 4 more to make 8 planets -->
+            <div class="col-sm-6 col-lg-3">
+              <article class="card p-3 planet-card h-100">
+                <img src="https://images.unsplash.com/photo-1526406915892-5d6ff66e1a7a?q=80&w=900&auto=format&fit=crop" class="planet-img mb-3 rounded" alt="Jupiter">
+                <h5>Jupiter</h5>
+                <p class="mb-2 text-muted small">The gas giant — massive, with a giant storm called the Great Red Spot.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <small class="text-muted">Moons: 95+</small>
+                  <a href="#" class="btn btn-sm btn-outline-light">Learn</a>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+              <article class="card p-3 planet-card h-100">
+                <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?q=80&w=900&auto=format&fit=crop" class="planet-img mb-3 rounded" alt="Saturn">
+                <h5>Saturn</h5>
+                <p class="mb-2 text-muted small">Famous for its spectacular ring system made of ice and rock.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <small class="text-muted">Density: less than water</small>
+                  <a href="#" class="btn btn-sm btn-outline-light">Learn</a>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+              <article class="card p-3 planet-card h-100">
+                <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=900&auto=format&fit=crop" class="planet-img mb-3 rounded" alt="Uranus">
+                <h5>Uranus</h5>
+                <p class="mb-2 text-muted small">An ice giant that rotates on its side — unique tilt among planets.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <small class="text-muted">Tilt: ~98°</small>
+                  <a href="#" class="btn btn-sm btn-outline-light">Learn</a>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-sm-6 col-lg-3">
+              <article class="card p-3 planet-card h-100">
+                <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=900&auto=format&fit=crop" class="planet-img mb-3 rounded" alt="Neptune">
+                <h5>Neptune</h5>
+                <p class="mb-2 text-muted small">The farthest planet — deep blue and windy, with supersonic storms.</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto">
+                  <small class="text-muted">Wind speeds: 2,100 km/h+</small>
+                  <a href="#" class="btn btn-sm btn-outline-light">Learn</a>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery" class="py-5">
+        <div class="container">
+          <h3 class="section-title">Gallery</h3>
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1400&auto=format&fit=crop" class="figure-img img-fluid rounded" alt="galaxy">
+                <figcaption class="figure-caption text-muted small">A distant galaxy captured by a space telescope.</figcaption>
+              </figure>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1470181944834-8b8c54fdbd86?q=80&w=1400&auto=format&fit=crop" class="figure-img img-fluid rounded" alt="nebula">
+                <figcaption class="figure-caption text-muted small">Colorful nebula where stars are born.</figcaption>
+              </figure>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <figure class="figure">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1400&auto=format&fit=crop" class="figure-img img-fluid rounded" alt="moon surface">
+                <figcaption class="figure-caption text-muted small">Craters on the moon's surface.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERESTING FACTS -->
+      <section id="facts" class="py-5 bg-transparent">
+        <div class="container">
+          <h3 class="section-title">Quick Space Facts</h3>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="p-3 rounded planet-card">
+                <h6>Black holes</h6>
+                <p class="small text-muted mb-0">Regions of spacetime with gravity so strong that not even light can escape. They can form from collapsed stars.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-3 rounded planet-card">
+                <h6>Light-year</h6>
+                <p class="small text-muted mb-0">A measure of distance — about 9.46 trillion kilometres. It's how we measure distances to stars and galaxies.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-3 rounded planet-card">
+                <h6>Exoplanets</h6>
+                <p class="small text-muted mb-0">Planets orbiting other stars. Thousands have been discovered, and many are in the habitable zone.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CALL TO ACTION -->
+      <section id="explore" class="py-5">
+        <div class="container text-center">
+          <h3>Ready to keep exploring?</h3>
+          <p class="text-muted">Use this template as a starting point for a school project, portfolio, or personal site about space.</p>
+          <a href="#" class="btn btn-accent btn-lg">Download Resources</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="container d-flex justify-content-between align-items-center">
+        <div>
+          <strong>Space Explorer</strong>
+          <div class="small text-muted">Made with ♥ for curious minds</div>
+        </div>
+        <div class="small text-muted">© <span id="yr"></span></div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // small helpers
+      document.getElementById('yr').textContent = new Date().getFullYear();
+      // smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const target = document.querySelector(this.getAttribute('href'));
+          if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+        });
+      });
+    </script>
+  </body>
+</html>
